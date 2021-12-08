@@ -3,7 +3,6 @@ package am.gbr.common.response;
 import am.gbr.common.entity.OrderStatus;
 import lombok.*;
 
-import javax.validation.constraints.Digits;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -13,7 +12,6 @@ import java.util.List;
 @Builder
 public class OrderResponse {
     private Long id;
-    @Digits(integer = 8, fraction = 0)
     private Long serialNumber;
     private UserResponse userResponse;
     private CompanyResponse companyResponse;
