@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <table>
+        <tr>
+            <th>group name</th>
+        </tr>
+        <tr th:each="listingGroup: ${listingGroups}">
+            <td th:text="${listingGroup.title}"></td>
+        </tr>
+    </table>
+</div>
+
+<div>
+    <table>
+        <tr>
+            <th>top listings</th>
+        </tr>
+        <tr th:each="top: ${topListings}">
+            <td th:text="${top.title}"></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
