@@ -1,8 +1,6 @@
 spring:
   datasource:
     url: jdbc:mysql://localhost:3306/gbr_prototype?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
-    username: musheghgh
-    password: Aa!812483al
   jpa:
     hibernate:
       ddl-auto: validate
