@@ -31,7 +31,6 @@ public class ExcelServiceImpl implements ExcelService {
     private final CompanyRepository companyRepository;
     private final CompanyTypeRepository companyTypeRepository;
     private final PresSellerRepository presSellerRepository;
-    private final DebtRepository debtRepository;
 
     @Override
     public void importProducts(MultipartFile file) throws Exception {
@@ -215,16 +214,6 @@ public class ExcelServiceImpl implements ExcelService {
                             Optional<PresSeller> optionalPresSeller = presSellerRepository.findById(presSellerIdFromExcel);
                             if (optionalPresSeller.isPresent()) {
                                 company.setPresSeller(optionalPresSeller.get());
-                            }
-                            break;
-                        case 7:
-                            long debtIdFromExcel = (long) currentCell.getNumericCellValue();
-                            if (debtIdFromExcel == 0) {
-                                break;
-                            }
-                            Optional<Debt> optionalDebt = debtRepository.findById(debtIdFromExcel);
-                            if (optionalDebt.isPresent()) {
-                                company.setDebt(optionalDebt.get());
                             }
                             break;
                         default:
@@ -550,13 +539,6 @@ public class ExcelServiceImpl implements ExcelService {
             productDataCell = companyDataRow.createCell(6);
             if (company.getPresSeller() != null) {
                 productDataCell.setCellValue(company.getPresSeller().getId());
-            } else {
-                productDataCell.setBlank();
-            }
-
-            productDataCell = companyDataRow.createCell(7);
-            if (company.getDebt() != null) {
-                productDataCell.setCellValue(company.getDebt().getId());
             } else {
                 productDataCell.setBlank();
             }

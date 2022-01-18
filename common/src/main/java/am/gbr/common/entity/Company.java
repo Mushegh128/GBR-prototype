@@ -31,15 +31,11 @@ public class Company {
     private boolean isActive;
     private boolean isVerified;
     private boolean isSynchronized;
-    @ManyToOne
-    private Discount discount;
     private LocalDateTime createdDateTime;
     @ManyToOne
     private CompanyType companyType;
     @ManyToOne
     private PresSeller presSeller;
     @ManyToOne
-    private Debt debt;
-
-
+    private Region region;
 }

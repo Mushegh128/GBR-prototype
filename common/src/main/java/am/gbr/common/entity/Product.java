@@ -34,5 +34,7 @@ public class Product {
     @ManyToOne
     private ProductCategory productCategory;
     @ManyToOne
+    private ProductGroup productGroup;
+    @ManyToOne
     private Brand brand;
 }

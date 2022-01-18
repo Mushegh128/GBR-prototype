@@ -19,4 +19,6 @@ public class Region {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
+    @ManyToOne
+    private Country country;
 }

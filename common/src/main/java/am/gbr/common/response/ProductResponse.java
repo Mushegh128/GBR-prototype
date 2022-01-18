@@ -1,7 +1,6 @@
 package am.gbr.common.response;
 
 import am.gbr.common.entity.Brand;
-import am.gbr.common.entity.Discount;
 import am.gbr.common.entity.MadeInCountry;
 import am.gbr.common.entity.ProductCategory;
 import lombok.AllArgsConstructor;
@@ -27,7 +26,6 @@ public class ProductResponse {
     private LocalDateTime createdDateTime;
     private boolean isActive;
     private MadeInCountry madeInCountry;
-    private Discount discount;
     private ProductCategory productCategory;
     private Brand brand;
 }

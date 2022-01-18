@@ -38,6 +38,5 @@ public class User {
     private Company company;
     @Enumerated(value = EnumType.STRING)
     private Role role;
-
 }
 

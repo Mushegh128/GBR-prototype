@@ -17,8 +17,7 @@ public class Like {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private int isLike;
+    private Reaction reaction;
     @ManyToOne
     private User user;
-
 }

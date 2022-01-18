@@ -1,7 +1,6 @@
 package am.gbr.common.response;
 
 import am.gbr.common.entity.CompanyType;
-import am.gbr.common.entity.Discount;
 import am.gbr.common.entity.PresSeller;
 import lombok.*;
 
@@ -21,7 +20,6 @@ public class CompanyResponse {
     private String logoUrl;
     private double level;
     private double rating;
-    private Discount discount;
     private CompanyType companyType;
     private PresSeller presSeller;
 }
