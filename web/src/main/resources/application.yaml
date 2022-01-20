@@ -5,5 +5,10 @@ spring:
     hibernate:
       ddl-auto: validate
     show-sql: true
+  flyway:
+    user: musheghgh
+    password: Aa!812483al
+    url: jdbc:mysql://localhost:3306
+    schemas: gbr_prototype
 server:
   port: 8081

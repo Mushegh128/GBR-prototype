@@ -4,5 +4,6 @@ public enum ListingStatus {
     NEW,
     ACTUAL,
     TOP,
-    DELETED
+    DELETED,
+    NON_ACTUAL
 }

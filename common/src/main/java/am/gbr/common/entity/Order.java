@@ -30,19 +30,18 @@ public class Order {
     private boolean isVerified;
     private boolean isSynchronized;
     private double orderCost;
-    private double debtSize;
     @Enumerated(value = EnumType.STRING)
     private OrderStatus orderStatus;
     @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     @JoinTable(
             name = "order_product_order",
-            joinColumns = {@JoinColumn(name = "order_id")},
+            joinColumns = {@JoinColumn(name = "order_basket_id")},
             inverseJoinColumns = {@JoinColumn(name = "product_order_id")})
     private List<ProductOrder> productOrders;
     @ManyToMany
     @JoinTable(
             name = "order_payment",
-            joinColumns = {@JoinColumn(name = "order_id")},
+            joinColumns = {@JoinColumn(name = "order_basket_id")},
             inverseJoinColumns = {@JoinColumn(name = "payment_id")})
     private List<Payment> paymentList;
 

@@ -18,8 +18,8 @@ public class Company {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    private long barcode;
+    private Long id;
+    private Long barcode;
     private String name;
     private String address;
     private String registerNumber;

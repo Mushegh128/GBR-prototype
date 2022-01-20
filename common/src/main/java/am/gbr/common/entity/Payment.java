@@ -19,10 +19,11 @@ public class Payment {
     private LocalDateTime createdDateTime;
     @Enumerated(value = EnumType.STRING)
     private PaymentStatus paymentStatus;
-    private long companyRegisterNumber;
+    private String companyRegisterNumber;
     private String serialNumber;
     @ManyToOne
     private User fromUser;
     @ManyToOne
+    @JoinColumn(name = "order_basket_id")
     private Order order;
 }

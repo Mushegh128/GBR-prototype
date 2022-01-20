@@ -21,6 +21,7 @@ public class Listing {
     private Long id;
     private String title;
     private String description;
+    @Enumerated(value = EnumType.STRING)
     private ListingStatus listingStatus;
     private final LocalDateTime createdDateTime = LocalDateTime.now();
     private String phoneNumber;
@@ -34,9 +35,9 @@ public class Listing {
     private ListingCategory listingCategory;
     @ManyToMany(cascade = CascadeType.MERGE)
     @JoinTable(
-            name = "listing_like",
+            name = "emotion",
             joinColumns = {@JoinColumn(name = "listing_id")},
-            inverseJoinColumns = {@JoinColumn(name = "like_listing_id")}
+            inverseJoinColumns = {@JoinColumn(name = "lt_id")}
     )
     private List<Like> likes;
 
