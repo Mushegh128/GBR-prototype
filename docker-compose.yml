@@ -1,0 +1,50 @@
+version: "3"
+services:
+
+  gbr-mysql:
+    image: mysql
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+#      - MYSQL_DATABASE=gbr_prototype
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=password
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./db:/var/lib/mysql
+    container_name: gbr_database
+
+  gbr-prototype:
+    depends_on:
+      - gbr-mysql
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: on-failure
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://gbr-mysql:3306/gbr_prototype?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+      DATABASE_USER: admin
+      DATABASE_PASSWORD: password
+      SPRING_PROFILES_ACTIVE: dev
+    container_name: gbr_prototype
+
+  gbr-flyway:
+    container_name: gbr_flyway
+    depends_on:
+      - gbr-mysql
+    links:
+      - gbr-mysql
+    image: flyway/flyway:latest
+    volumes:
+      - ./web/src/main/resources/db/migration:/db/migration
+    environment:
+      FLYWAY_USER: root
+      FLYWAY_PASSWORD: root
+      FLYWAY_URL: jdbc:mysql://gbr-mysql:3306
+      FLYWAY_LOCATIONS: filesystem:/db/migration
+      FLYWAY_SCHEMAS: gbr_prototype
+    command:
+      - migrate
